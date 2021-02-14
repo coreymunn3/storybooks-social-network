@@ -14,4 +14,19 @@ router.get(
     res.redirect('/dashboard')
 );
 
+// get current user
+router.get('/currentuser', (req, res) => {
+  if (req.user) {
+    res.send(req.user);
+  } else {
+    res.json({});
+  }
+});
+
+// Log Out
+router.get('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/');
+});
+
 module.exports = router;
