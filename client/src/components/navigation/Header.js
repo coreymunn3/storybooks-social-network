@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from 'react';
-import { useHistory } from 'react-router-dom';
 import {
   AppBar,
   Typography,
@@ -10,10 +9,11 @@ import {
   Button,
 } from '@material-ui/core';
 import { AccountCircle, ImportContacts } from '@material-ui/icons';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const auth = useSelector((state) => state.auth);
   const [anchor, setAnchor] = useState(null);
-  const auth = true;
 
   const renderContent = () => {
     if (auth) {
