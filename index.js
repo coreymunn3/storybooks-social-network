@@ -29,6 +29,7 @@ app.use(passport.session());
 // routes
 app.use('/', require('./routes'));
 app.use('/auth', require('./routes/auth.js'));
+app.use('/api/stories', require('./routes/story.js'));
 
 // for Heroku Deployment
 if (process.env.NODE_ENV === 'production') {

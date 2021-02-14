@@ -1,11 +1,12 @@
 import React, { useEffect, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getUser } from './actions/authActions';
+// components
+import PrivateRoute from './components/PrivateRoute';
 import Login from './components/pages/Login';
 import Header from './components/navigation/Header';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from './actions/authActions';
-
-const Dashboard = () => <h1>Dashboard</h1>;
+import Dashboard from './components/pages/dashboard/Dashboard';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const App = () => {
         <Route exact path='/' component={Login}></Route>
         <Fragment>
           <Header />
-          <Route path='/dashboard' component={Dashboard}></Route>
+          <PrivateRoute path='/dashboard' component={Dashboard}></PrivateRoute>
+          {/* other routes here, inside the fragment */}
         </Fragment>
       </Switch>
     </Router>

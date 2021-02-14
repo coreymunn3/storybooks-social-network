@@ -19,6 +19,7 @@ const Header = () => {
     if (auth) {
       return (
         <Fragment>
+          <Typography>{`Hello, ${auth.firstName}`}</Typography>
           <IconButton
             aria-label='use account'
             aria-controls='menu-appbar'

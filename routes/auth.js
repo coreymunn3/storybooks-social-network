@@ -19,7 +19,7 @@ router.get('/currentuser', (req, res) => {
   if (req.user) {
     res.send(req.user);
   } else {
-    res.json({});
+    res.send(false);
   }
 });
 
